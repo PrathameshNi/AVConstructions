@@ -1,0 +1,174 @@
+/* ============================
+   AV CONSTRUCTION & DEVELOPERS
+   Theme: Royal Blueprint Blue
+   Fonts: Montserrat + Source Sans 3
+============================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+:root {
+  /* Brand Blues — extracted from logo */
+  --blue-dark:    #1A3A5C;
+  --blue-core:    #1E6BB8;
+  --blue-mid:     #2878CC;
+  --blue-bright:  #3A8FE0;
+  --blue-light:   #5AABF0;
+  --blue-tint:    #EAF3FB;
+
+  /* Neutrals */
+  --white:        #FFFFFF;
+  --off-white:    #F5F8FC;
+  --light-gray:   #E8EFF7;
+  --gray:         #C2CDD9;
+  --text-dark:    #152030;
+  --text-mid:     #3D4F63;
+  --text-muted:   #7A90A8;
+
+  /* Accents */
+  --steel:        #1A3A5C;
+  --glow:         rgba(30,107,184,0.22);
+  --radius:       6px;
+  --ease:         cubic-bezier(0.4,0,0.2,1);
+  --t:            0.3s var(--ease);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--light-gray); }
+::-webkit-scrollbar-thumb { background: var(--blue-core); border-radius: 3px; }
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+  background: var(--white);
+  padding: 0 60px;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 2px solid var(--blue-core);
+  box-shadow: 0 2px 20px rgba(30,107,184,0.12);
+}
+
+/* Blue accent stripe on left */
+.navbar::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(180deg, var(--blue-core), var(--blue-dark));
+}
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--blue-dark);
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: var(--t);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo span { color: var(--blue-core); }
+.logo:hover { color: var(--blue-core); }
+
+.logo-container{
+
+  display:flex;
+
+  align-items:center;
+
+  overflow:hidden;
+
+  height:70px;
+}
+
+.logo-img{
+
+  width:200px;
+
+  height:150px;
+
+  object-fit:cover;
+
+  margin-top:-90px;
+
+  margin-bottom:-110px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav-links span {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  transition: var(--t);
+  position: relative;
+  letter-spacing: 0.3px;
+}
+
+.nav-links span::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 2px;
+  background: var(--blue-core);
+  border-radius: 1px;
+  transition: var(--t);
+}
+
+.nav-links span:hover { color: var(--blue-core); }
+.nav-links span:hover::after { width: 60%; }
+
+.btn {
+  background: var(--blue-core) !important;
+  color: var(--white) !important;
+  padding: 10px 22px !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  border-radius: var(--radius) !important;
+  border: 2px solid var(--blue-core) !important;
+  transition: var(--t) !important;
+  box-shadow: 0 4px 14px rgba(30,107,184,0.3) !important;
+  letter-spacing: 0.3px !important;
+}
+
+.btn:hover {
+  background: var(--blue-dark) !important;
+  border-color: var(--blue-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(30,107,184,0.4) !important;
+}
+
+.btn::before, .btn::after { display: none !important; }
+
+@media (max-width: 768px) {
+  .navbar { padding: 0 20px; height: 64px; }
+  .nav-links span { font-size: 12px; padding: 6px 10px; }
+  .logo { font-size: 16px; }
+}
