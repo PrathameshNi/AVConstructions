@@ -52,7 +52,7 @@ const Appointment = () => {
     try {
 
       await axios.post(
-        "http://localhost:5000/api/appointments",
+        "https://avconstructions.onrender.com/api/appointments",
 
         form
       );
