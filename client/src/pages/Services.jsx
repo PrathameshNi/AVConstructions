@@ -18,7 +18,7 @@ const Services = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/services"
+        "https://avconstructions.onrender.com/api/services"
       );
 
       setServicesData(res.data);
