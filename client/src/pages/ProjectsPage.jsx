@@ -36,7 +36,7 @@ const ProjectsPage = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/projects"
+        "https://avconstructions.onrender.com/api/projects"
       );
 
       setProjects(res.data);
