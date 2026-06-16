@@ -26,7 +26,7 @@ const About = () => {
 
       const res =
         await axios.get(
-          "http://localhost:5000/api/about"
+          "https://avconstructions.onrender.com/api/about"
         );
 
       setAbout(res.data);
