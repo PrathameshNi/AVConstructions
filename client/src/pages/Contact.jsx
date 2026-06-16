@@ -27,7 +27,7 @@ const ContactUs = () => {
 
       const res =
         await axios.get(
-          "http://localhost:5000/api/contact"
+          "https://avconstructions.onrender.com/api/contact"
         );
 
       setContact(res.data);
