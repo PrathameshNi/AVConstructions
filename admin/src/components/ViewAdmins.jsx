@@ -40,7 +40,7 @@ const ViewAdmins = () => {
 
       const res =
         await axios.get(
-          "http://localhost:5000/api/admins",
+          "https://avconstructions.onrender.com/api/admins",
 
           {
             headers: {
