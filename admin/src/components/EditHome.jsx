@@ -27,7 +27,7 @@ const EditHome = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/home-content"
+        "https://avconstructions.onrender.com/api/home-content"
       );
 
       setForm({
