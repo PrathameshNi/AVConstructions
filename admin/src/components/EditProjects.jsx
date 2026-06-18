@@ -149,7 +149,7 @@ const EditProjects = () => {
         );
 
       await axios.delete(
-        `http://localhost:5000/api/projects/${id}`,
+        `https://avconstructions.onrender.com/api/projects/${id}`,
 
         {
           headers: {
