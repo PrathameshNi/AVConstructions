@@ -297,7 +297,7 @@ app.put(
       if (req.file) {
 
         content.image =
-          `http://localhost:${PORT}/uploads/${req.file.filename}`;
+          `https://avconstructions.onrender.com/uploads/${req.file.filename}`;
       }
 
       await content.save();
