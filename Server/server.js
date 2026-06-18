@@ -450,7 +450,7 @@ app.post(
       const { title } = req.body;
 
       const image =
-        `http://localhost:${PORT}/uploads/${req.file.filename}`;
+       `https://avconstructions.onrender.com/uploads/${req.file.filename}`;
 
       await Project.create({
         title,
@@ -600,7 +600,7 @@ app.put(
       if (req.file) {
 
         about.image =
-          `http://localhost:${PORT}/uploads/${req.file.filename}`;
+  `https://avconstructions.onrender.com/uploads/${req.file.filename}`;
       }
 
       await about.save();
