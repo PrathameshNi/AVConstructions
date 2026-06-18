@@ -73,7 +73,7 @@ const Appointments = () => {
         );
 
       await axios.delete(
-        `http://localhost:5000/api/appointments/${id}`,
+        `https://avconstructions.onrender.com/api/appointments/${id}`,
 
         {
           headers: {
