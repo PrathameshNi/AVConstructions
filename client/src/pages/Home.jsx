@@ -34,8 +34,8 @@ const Home = () => {
         {/* LEFT IMAGE */}
         <div className="home-left">
           <img
-            src={content.image}
-            alt="Construction"
+              src={content.image}
+                alt="Construction"
           />
         </div>
 
