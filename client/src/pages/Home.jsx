@@ -34,8 +34,8 @@ const Home = () => {
         {/* LEFT IMAGE */}
         <div className="home-left">
           <img
-            src={`https://avconstructions.onrender.com/uploads/${content.image}`}
-            alt="Construction"
+              src={content.image}
+                alt="Construction"
           />
         </div>
 
