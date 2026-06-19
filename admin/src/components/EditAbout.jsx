@@ -45,7 +45,7 @@ const EditAbout = () => {
 
       const res =
         await axios.get(
-          "http://localhost:5000/api/about"
+          "https://avconstructions.onrender.com/api/about"
         );
 
       setForm(res.data);
@@ -105,7 +105,7 @@ const EditAbout = () => {
       }
 
       await axios.put(
-        "http://localhost:5000/api/about",
+        "https://avconstructions.onrender.com/api/about",
 
         formData,
 

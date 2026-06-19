@@ -45,7 +45,7 @@ const EditProjects = () => {
 
       const res =
         await axios.get(
-          "http://localhost:5000/api/projects"
+          "https://avconstructions.onrender.com/api/projects"
         );
 
       setProjects(res.data);
@@ -94,7 +94,7 @@ const EditProjects = () => {
       );
 
       await axios.post(
-        "http://localhost:5000/api/projects",
+        "https://avconstructions.onrender.com/api/projects",
 
         formData,
 
@@ -149,7 +149,7 @@ const EditProjects = () => {
         );
 
       await axios.delete(
-        `http://localhost:5000/api/projects/${id}`,
+        `https://avconstructions.onrender.com/api/projects/${id}`,
 
         {
           headers: {

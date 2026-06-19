@@ -108,7 +108,7 @@ const AddAdmin = () => {
 
       const res =
         await axios.post(
-          "http://localhost:5000/api/add-admin",
+          "https://avconstructions.onrender.com/api/add-admin",
 
           {
             username:

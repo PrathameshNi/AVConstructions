@@ -40,7 +40,7 @@ const ViewAdmins = () => {
 
       const res =
         await axios.get(
-          "http://localhost:5000/api/admins",
+          "https://avconstructions.onrender.com/api/admins",
 
           {
             headers: {
@@ -79,7 +79,7 @@ const ViewAdmins = () => {
         );
 
       await axios.delete(
-        `http://localhost:5000/api/admins/${id}`,
+        `https://avconstructions.onrender.com/api/admins/${id}`,
 
         {
           headers: {

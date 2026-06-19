@@ -28,7 +28,7 @@ const EditServices = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/services"
+        "https://avconstructions.onrender.com/api/services"
       );
 
       setServices(res.data);
@@ -113,7 +113,7 @@ const EditServices = () => {
         localStorage.getItem("token");
 
       await axios.put(
-        "http://localhost:5000/api/services",
+        "https://avconstructions.onrender.com/api/services",
 
         { services },
 

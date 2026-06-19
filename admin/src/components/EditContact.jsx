@@ -42,7 +42,7 @@ const EditContact = () => {
 
       const res =
         await axios.get(
-          "http://localhost:5000/api/contact"
+          "https://avconstructions.onrender.com/api/contact"
         );
 
       setForm(res.data);
@@ -78,7 +78,7 @@ const EditContact = () => {
         );
 
       await axios.put(
-        "http://localhost:5000/api/contact",
+        "https://avconstructions.onrender.com/api/contact",
 
         form,
 
