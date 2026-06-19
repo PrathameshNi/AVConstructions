@@ -37,7 +37,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use("/uploads", express.static("uploads"));
+
 
 /* ================= ENV ================= */
 
@@ -436,9 +436,7 @@ app.get(
 
 app.post(
   "/api/projects",
-
   verifyToken,
-
   upload.single("image"),
 
   async (req, res) => {
@@ -447,8 +445,7 @@ app.post(
 
       const { title } = req.body;
 
-      const image =
-        content.image = req.file.path;
+      const image = req.file.path;
 
       await Project.create({
         title,
@@ -457,8 +454,7 @@ app.post(
 
       res.json({
         success: true,
-        message:
-          "Project Added Successfully ✅",
+        message: "Project Added Successfully ✅",
       });
 
     } catch (err) {
@@ -466,13 +462,11 @@ app.post(
       console.log(err);
 
       res.status(500).json({
-        message:
-          "Server Error ❌",
+        message: "Server Error ❌",
       });
     }
   }
 );
-
 /* ================= DELETE PROJECT ================= */
 
 app.delete(
@@ -597,8 +591,8 @@ app.put(
 
       if (req.file) {
 
-        about.image =
-         content.image = req.file.path;
+        about.image = req.file.path;
+         
       }
 
       await about.save();
