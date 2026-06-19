@@ -51,7 +51,7 @@ const About = () => {
 
           <img
             src={about.image}
-            alt=""
+            alt="img"
           />
 
         </div>

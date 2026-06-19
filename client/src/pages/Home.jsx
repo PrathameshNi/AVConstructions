@@ -35,7 +35,7 @@ const Home = () => {
         <div className="home-left">
           <img
               src={content.image}
-                alt="Construction"
+              alt="Construction"
           />
         </div>
 
