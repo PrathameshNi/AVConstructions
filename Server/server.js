@@ -438,31 +438,33 @@ app.post(
   "/api/projects",
   verifyToken,
   upload.single("image"),
-
   async (req, res) => {
-
     try {
+      console.log("FILE RECEIVED:", req.file);
 
       const { title } = req.body;
 
       const image = req.file.path;
 
-      await Project.create({
+      console.log("IMAGE URL:", image);
+
+      const project = await Project.create({
         title,
         image,
       });
 
+      console.log("PROJECT SAVED:", project);
+
       res.json({
         success: true,
-        message: "Project Added Successfully ✅",
+        project,
       });
 
     } catch (err) {
-
-      console.log(err);
-
+      console.log("PROJECT ERROR:", err);
       res.status(500).json({
-        message: "Server Error ❌",
+        success: false,
+        message: err.message,
       });
     }
   }
