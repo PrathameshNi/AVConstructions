@@ -448,7 +448,7 @@ app.post(
       const { title } = req.body;
 
       const image =
-        `http://localhost:${PORT}/uploads/${req.file.filename}`;
+        content.image = req.file.path;
 
       await Project.create({
         title,
@@ -598,7 +598,7 @@ app.put(
       if (req.file) {
 
         about.image =
-          `http://localhost:${PORT}/uploads/${req.file.filename}`;
+         content.image = req.file.path;
       }
 
       await about.save();
