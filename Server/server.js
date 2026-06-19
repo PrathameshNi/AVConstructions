@@ -14,7 +14,7 @@ const upload = require("./middleware/upload");
 const Admin = require("./models/Admin");
 
 const HomeContent = require("./models/HomeContent");
-
+ 
 const verifyToken = require("./middleware/authMiddleware");
 
 const Service = require("./models/Service");
@@ -296,8 +296,7 @@ app.put(
 
       if (req.file) {
 
-        content.image =
-          `https://avconstructions.onrender.com/uploads/${req.file.filename}`;
+        content.image = req.file.path;
       }
 
       await content.save();
@@ -323,7 +322,6 @@ app.put(
     }
   }
 );
-
 /* ================= GET SERVICES ================= */
 
 app.get("/api/services", async (req, res) => {
@@ -450,7 +448,7 @@ app.post(
       const { title } = req.body;
 
       const image =
-       `https://avconstructions.onrender.com/uploads/${req.file.filename}`;
+        `http://localhost:${PORT}/uploads/${req.file.filename}`;
 
       await Project.create({
         title,
@@ -600,7 +598,7 @@ app.put(
       if (req.file) {
 
         about.image =
-  `https://avconstructions.onrender.com/uploads/${req.file.filename}`;
+          `http://localhost:${PORT}/uploads/${req.file.filename}`;
       }
 
       await about.save();
