@@ -1254,11 +1254,9 @@
 }
 
 /**********Map**************/
-/* MAP SECTION */
-
 .map-section {
   padding: 80px 10%;
-  background: #ffffff;
+  background: #fff;
   text-align: center;
 }
 
@@ -1268,7 +1266,7 @@
 }
 
 .map-section h2 {
-  font-size: 42px;
+  font-size: 40px;
   color: #0b3d91;
   margin-bottom: 15px;
 }
@@ -1278,14 +1276,14 @@
 }
 
 .map-text {
-  color: #666;
   font-size: 18px;
+  color: #666;
   margin-bottom: 30px;
-  line-height: 1.7;
 }
 
 .map-container iframe {
   width: 100%;
+  border: none;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
