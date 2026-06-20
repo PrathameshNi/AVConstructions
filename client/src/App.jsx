@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Appointment from "./pages/Appointment";
 import Contact from "./pages/Contact"
 import './App.css'
+import Map from "./pages/Map";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Projects/>
               <About/>
               <Contact/>
+              <Map/>
             </>
           }
         />
