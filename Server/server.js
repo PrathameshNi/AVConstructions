@@ -918,46 +918,60 @@ app.post("/api/feedback", async (req, res) => {
 
   /* =================  GET FEEDBACK ================= */
 
-app.get("/api/feedback", async (req, res) => {
+app.get(
+  "/api/feedback",
+  verifyToken,
+  async (req, res) => {
 
-  try {
-
-    const feedbacks = await Feedback.find()
+    const feedback = await Feedback.find()
       .sort({ createdAt: -1 });
 
-    res.json(feedbacks);
-
-  } catch (err) {
-
-    res.status(500).json({
-      message: "Server Error"
-    });
+    res.json(feedback);
 
   }
-
-});
+);
 
   /* =================  DELETE FEEDBACK ================= */
-app.delete("/api/feedback/:id", verifyToken, async (req, res) => {
+app.delete(
+  "/api/feedback/:id",
+  verifyToken,
+  async (req, res) => {
 
-  try {
-
-    await Feedback.findByIdAndDelete(req.params.id);
+    await Feedback.findByIdAndDelete(
+      req.params.id
+    );
 
     res.json({
       success: true,
       message: "Feedback Deleted"
     });
 
-  } catch (err) {
+  }
+);
 
-    res.status(500).json({
-      message: "Server Error"
+app.post(
+  "/api/feedback",
+  async (req, res) => {
+
+    const {
+      name,
+      rating,
+      feedback
+    } = req.body;
+
+    await Feedback.create({
+      name,
+      rating,
+      feedback
+    });
+
+    res.json({
+      success: true,
+      message: "Feedback Submitted"
     });
 
   }
-
-});
+);
 /* ================= SERVER ================= */
 
 app.listen(PORT, () => {
