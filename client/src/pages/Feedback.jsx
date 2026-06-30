@@ -1,60 +1,113 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Style2.css";
 
 const Feedback = () => {
-  const feedbacks = [
-    {
-      name: "Rahul Patil",
-      feedback:
-        "Excellent construction quality and timely project delivery. Highly recommended!",
-    },
-    {
-      name: "Sneha Desai",
-      feedback:
-        "Professional team with great attention to detail. Our dream home became reality.",
-    },
-    {
-      name: "Amit Joshi",
-      feedback:
-        "Very satisfied with the workmanship and communication throughout the project.",
-    },
-  ];
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    rating: 5,
+    feedback: "",
+  });
+
+  const handleChange = (e) => {
+
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+
+  };
+
+  const handleSubmit = async (e) => {
+
+    e.preventDefault();
+
+    try {
+
+      await axios.post(
+        "https://avconstructions.onrender.com/api/feedback",
+        form
+      );
+
+      alert("Feedback Submitted Successfully ✅");
+
+      setForm({
+        name: "",
+        email: "",
+        rating: 5,
+        feedback: "",
+      });
+
+    } catch (err) {
+
+      alert("Something went wrong");
+
+    }
+
+  };
 
   return (
-    <section id="feedback" className="feedback-section">
 
-      <div className="feedback-container">
+    <div className="appointment-page">
 
-        <h2>
-          Client <span>Feedback</span>
-        </h2>
+      <div className="appointment-card">
 
-        <p className="feedback-text">
-          Here's what our valued clients say about our work.
-        </p>
+        <h1>Customer Feedback</h1>
 
-        <div className="feedback-grid">
+        <form onSubmit={handleSubmit}>
 
-          {feedbacks.map((item, index) => (
-            <div className="feedback-card" key={index}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={form.name}
+            onChange={handleChange}
+            required
+          />
 
-              <div className="stars">
-                ⭐⭐⭐⭐⭐
-              </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
 
-              <p>"{item.feedback}"</p>
+          <select
+            name="rating"
+            value={form.rating}
+            onChange={handleChange}
+          >
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+          </select>
 
-              <h4>- {item.name}</h4>
+          <textarea
+            name="feedback"
+            placeholder="Write your feedback"
+            value={form.feedback}
+            onChange={handleChange}
+            required
+          />
 
-            </div>
-          ))}
+          <button type="submit">
+            Submit Feedback
+          </button>
 
-        </div>
+        </form>
 
       </div>
 
-    </section>
+    </div>
+
   );
+
 };
 
 export default Feedback;

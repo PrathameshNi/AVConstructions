@@ -27,6 +27,8 @@ const Appointment = require("./models/Appointment");
 
 const Contact = require("./models/Contact");
 
+const Feedback = require("./models/Feedback");
+
 /* ================= APP ================= */
 
 const app = express();
@@ -891,6 +893,71 @@ app.put(
   }
 );
 
+/* ================= POST FEEDBACK ================= */
+app.post("/api/feedback", async (req, res) => {
+
+  try {
+
+    await Feedback.create(req.body);
+
+    res.json({
+      success: true,
+      message: "Feedback Submitted"
+    });
+
+  } catch (err) {
+
+    res.status(500).json({
+      message: "Server Error"
+    });
+
+  }
+
+
+});
+
+  /* =================  GET FEEDBACK ================= */
+
+app.get("/api/feedback", async (req, res) => {
+
+  try {
+
+    const feedbacks = await Feedback.find()
+      .sort({ createdAt: -1 });
+
+    res.json(feedbacks);
+
+  } catch (err) {
+
+    res.status(500).json({
+      message: "Server Error"
+    });
+
+  }
+
+});
+
+  /* =================  DELETE FEEDBACK ================= */
+app.delete("/api/feedback/:id", verifyToken, async (req, res) => {
+
+  try {
+
+    await Feedback.findByIdAndDelete(req.params.id);
+
+    res.json({
+      success: true,
+      message: "Feedback Deleted"
+    });
+
+  } catch (err) {
+
+    res.status(500).json({
+      message: "Server Error"
+    });
+
+  }
+
+});
 /* ================= SERVER ================= */
 
 app.listen(PORT, () => {

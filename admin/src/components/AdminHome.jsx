@@ -35,6 +35,10 @@ const AdminHome = () => {
 >     Appointments
    </button>
 
+   <button onClick={() => navigate("/view-feedback")}>
+  View Feedback
+</button>
+
     <button className="btn-logout" onClick={logout}>
       Logout
     </button>

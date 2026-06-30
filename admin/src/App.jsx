@@ -11,6 +11,7 @@ import Appointments from './components/ViewAppointments.jsx';
 import ViewAdmins from './components/ViewAdmins.jsx';
 import EditContact from './components/EditContact.jsx';
 import BillingPage from './components/Billing.jsx';
+import ViewFeedback from "./pages/ViewFeedback";
 
 function App() {
 
@@ -28,7 +29,8 @@ function App() {
         <Route path="/appointments" element={<Appointments />}/>
         <Route path="/view-admins" element={<ViewAdmins />}/>
         <Route path="/edit-contact" element={<EditContact />}/>
-        <Route path='/billing' element={<BillingPage/>}
+        <Route path='/billing' element={<BillingPage/>}/>
+        <Route path="/view-feedback" element={<ViewFeedback />}
 />
       </Routes>
     </Router>
