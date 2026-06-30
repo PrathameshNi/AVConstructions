@@ -1,165 +1,103 @@
-import React, { useEffect, useState } from "react";
+import React,
+{
+  useEffect,
+  useState
+} from "react";
+
 import axios from "axios";
+
 import "./Style2.css";
 
 const ContactUs = () => {
-  const [contact, setContact] = useState({});
+
+  const [contact,
+    setContact] =
+    useState({});
 
   useEffect(() => {
+
     fetchContact();
+
   }, []);
 
-  const fetchContact = async () => {
+  const fetchContact =
+    async () => {
+
     try {
-      const res = await axios.get(
-        "https://avconstructions.onrender.com/api/contact"
-      );
+
+      const res =
+        await axios.get(
+          "https://avconstructions.onrender.com/api/contact"
+        );
 
       setContact(res.data);
+
     } catch (err) {
+
       console.log(err);
     }
   };
 
   return (
-    <footer id="contact" className="footer">
 
-      <div className="footer-grid">
+    <section
+      id="contact"
+      className="contact"
+    >
 
-        {/* Company */}
+      <div className="contact-container">
 
-        <div className="footer-brand">
+        <div className="contact-left">
 
-          <img
-            src="/logo.jpg"
-            alt="AV Construction"
-            className="footer-logo-img"
-          />
+          <h2>
+            Contact <span>Us</span>
+          </h2>
 
-          <p>
+          <p className="contact-text">
+
             {contact.description}
+
           </p>
 
-          <div className="footer-socials">
+          <div className="contact-info">
 
-            <a href="#">
-              <i className="fa-brands fa-facebook-f"></i>
-            </a>
+            <div className="contact-box">
 
-            <a href="#">
-              <i className="fa-brands fa-instagram"></i>
-            </a>
+              <h3>📍 Address</h3>
 
-            <a href="#">
-              <i className="fa-brands fa-linkedin-in"></i>
-            </a>
+              <p>
+                {contact.address}
+              </p>
 
-            <a href="#">
-              <i className="fa-brands fa-x-twitter"></i>
-            </a>
+            </div>
+
+            <div className="contact-box">
+
+              <h3>📞 Phone</h3>
+
+              <p>
+                {contact.phone}
+              </p>
+
+            </div>
+
+            <div className="contact-box">
+
+              <h3>📧 Email</h3>
+
+              <p>
+                {contact.email}
+              </p>
+
+            </div>
 
           </div>
 
         </div>
 
-        {/* Quick Links */}
-
-        <div className="footer-col">
-
-          <h3>Quick Links</h3>
-
-          <ul>
-
-            <li>
-              <span
-                onClick={() =>
-                  document
-                    .getElementById("home")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                Home
-              </span>
-            </li>
-
-            <li>
-              <span
-                onClick={() =>
-                  document
-                    .getElementById("services")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                Services
-              </span>
-            </li>
-
-            <li>
-              <span
-                onClick={() =>
-                  document
-                    .getElementById("projects")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                Projects
-              </span>
-            </li>
-
-            <li>
-              <span
-                onClick={() =>
-                  document
-                    .getElementById("about")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                About
-              </span>
-            </li>
-
-          </ul>
-
-        </div>
-
-        {/* Contact */}
-
-        <div className="footer-col">
-
-          <h3>Contact Info</h3>
-
-          <ul>
-
-            <li>
-              📍 {contact.address}
-            </li>
-
-            <li>
-              <a href={`tel:${contact.phone}`}>
-                📞 {contact.phone}
-              </a>
-            </li>
-
-            <li>
-              <a href={`mailto:${contact.email}`}>
-                📧 {contact.email}
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
       </div>
 
-      <div className="footer-bottom">
-
-        © {new Date().getFullYear()} AV Construction & Developers.
-        All Rights Reserved.
-
-      </div>
-
-    </footer>
+    </section>
   );
 };
 
