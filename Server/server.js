@@ -893,61 +893,65 @@ app.put(
   }
 );
 
-/* ================= POST FEEDBACK ================= */
-app.post("/api/feedback", async (req, res) => {
+const Feedback = require("./models/Feedback");
 
+/* =========================
+   FEEDBACK ROUTES
+========================= */
+
+// PUBLIC — used by client-facing Feedback.jsx (no token required)
+app.get("/api/feedback/public", async (req, res) => {
   try {
-
-    await Feedback.create(req.body);
-
-    res.json({
-      success: true,
-      message: "Feedback Submitted"
-    });
-
+    const feedbacks = await Feedback.find().sort({ createdAt: -1 });
+    res.json(feedbacks);
   } catch (err) {
-
-    res.status(500).json({
-      message: "Server Error"
-    });
-
+    res.status(500).json({ message: "Server error", error: err.message });
   }
-
-
 });
 
-  /* =================  GET FEEDBACK ================= */
-
-app.get(
-  "/api/feedback",
-  verifyToken,
-  async (req, res) => {
-
-    const feedback = await Feedback.find()
-      .sort({ createdAt: -1 });
-
-    res.json(feedback);
-
+// PROTECTED — used by admin ViewFeedback.jsx (token required)
+app.get("/api/feedback", verifyToken, async (req, res) => {
+  try {
+    const feedbacks = await Feedback.find().sort({ createdAt: -1 });
+    res.json(feedbacks);
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
   }
-);
+});
 
-  /* =================  DELETE FEEDBACK ================= */
-app.delete(
-  "/api/feedback/:id",
-  verifyToken,
-  async (req, res) => {
+// PUBLIC — anyone can submit feedback, no login required
+app.post("/api/feedback", async (req, res) => {
+  try {
+    const { name, email, rating, feedback } = req.body;
 
-    await Feedback.findByIdAndDelete(
-      req.params.id
-    );
+    if (!name || !email || !rating || !feedback) {
+      return res.status(400).json({ message: "All fields required" });
+    }
 
-    res.json({
-      success: true,
-      message: "Feedback Deleted"
+    const newFeedback = new Feedback({
+      name,
+      email,
+      rating,
+      feedback,
     });
 
+    await newFeedback.save();
+
+    res.status(201).json({ message: "Feedback submitted", data: newFeedback });
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
   }
-);
+});
+
+// PROTECTED — admin only, delete a feedback entry
+app.delete("/api/feedback/:id", verifyToken, async (req, res) => {
+  try {
+    await Feedback.findByIdAndDelete(req.params.id);
+    res.json({ message: "Feedback deleted" });
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
+  }
+});
 
 
 /* ================= SERVER ================= */
