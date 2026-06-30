@@ -50,16 +50,19 @@ const Navbar = () => {
         </span>
 
         {/* Navigate to Feedback Page */}
-        <span onClick={() => navigate("/feedback")}>
-          Feedback
-        </span>
+       <button
+  className="btn"
+  onClick={() => navigate("/feedback")}
+>
+  Feedback
+</button>
 
-        <span
-          className="btn"
-          onClick={() => navigate("/appointment")}
-        >
-          Book Appointment
-        </span>
+<button
+  className="btn"
+  onClick={() => navigate("/appointment")}
+>
+  Book Appointment
+</button>
 
       </div>
 

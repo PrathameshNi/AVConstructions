@@ -174,23 +174,25 @@ body {
 }
 
 
-.btn{
-  padding: 10px 20px;
+.btn {
+  background: #1565c0;
+  color: #fff;
   border: none;
-  border-radius: 30px;
-  cursor: pointer;
+  padding: 12px 26px;
+  border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
-  transition: 0.3s;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.25);
 }
 
-.feedback-btn{
-  background: #ff9800;
-  color: #fff;
-  margin-right: 10px;
-}
-
-.feedback-btn:hover{
-  background: #e68900;
+.btn:hover {
+  background: #0d47a1;
   transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(21, 101, 192, 0.35);
+}
+
+.nav-links .btn {
+  margin-left: 12px;
 }
