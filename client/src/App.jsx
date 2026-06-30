@@ -9,6 +9,7 @@ import Appointment from "./pages/Appointment";
 import Contact from "./pages/Contact"
 import './App.css'
 import Map from "./pages/Map";
+import Feedback from "./pages/Feedback";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
               <About/>
               <Contact/>
               <Map/>
+              <Feedback/>
             </>
           }
         />

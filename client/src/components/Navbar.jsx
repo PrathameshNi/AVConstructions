@@ -27,6 +27,7 @@ const Navbar = () => {
         <span onClick={() => scrollTo("projects")}>Projects</span>
         <span onClick={() => scrollTo("about")}>About</span>
         <span onClick={() => scrollTo("contact")}>Contact</span>
+        <span onClick={() => scrollTo("feedback")}>Feedback</span>
 
         {/* ✅ Navigate instead of scroll */}
         <span
