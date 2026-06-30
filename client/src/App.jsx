@@ -28,12 +28,13 @@ function App() {
               <About/>
               <Contact/>
               <Map/>
-              <Feedback/>
+              
             </>
           }
         />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/appointment" element={<Appointment />} />
+        <Route path="/feedback" element={<Feedback />} />
       </Routes>
     </Router>
   )
