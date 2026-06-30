@@ -30,17 +30,56 @@ const ContactUs = () => {
 
         <div className="footer-brand">
 
+          <h2 className="footer-logo">
+            AV Construction
+          </h2>
 
           <p>
-            {contact.description}
+            {contact?.description ||
+              "Building excellence across every project with quality and trust."}
           </p>
 
           <div className="footer-socials">
 
-            <a href="#" className="social-btn" aria-label="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
-              <a href="#" className="social-btn" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
-              <a href="#" className="social-btn" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in"></i></a>
-              <a href="#" className="social-btn" aria-label="Twitter/X"><i className="fa-brands fa-x-twitter"></i></a>
+            <a
+              href="https://facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn"
+              aria-label="Facebook"
+            >
+              <i className="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn"
+              aria-label="Instagram"
+            >
+              <i className="fa-brands fa-instagram"></i>
+            </a>
+
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn"
+              aria-label="LinkedIn"
+            >
+              <i className="fa-brands fa-linkedin-in"></i>
+            </a>
+
+            <a
+              href="https://x.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-btn"
+              aria-label="Twitter"
+            >
+              <i className="fa-brands fa-x-twitter"></i>
+            </a>
 
           </div>
 
@@ -57,9 +96,10 @@ const ContactUs = () => {
             <li>
               <span
                 onClick={() =>
-                  document
-                    .getElementById("home")
-                    ?.scrollIntoView({ behavior: "smooth" })
+                  document.getElementById("home")
+                    ?.scrollIntoView({
+                      behavior: "smooth",
+                    })
                 }
               >
                 Home
@@ -69,9 +109,10 @@ const ContactUs = () => {
             <li>
               <span
                 onClick={() =>
-                  document
-                    .getElementById("services")
-                    ?.scrollIntoView({ behavior: "smooth" })
+                  document.getElementById("services")
+                    ?.scrollIntoView({
+                      behavior: "smooth",
+                    })
                 }
               >
                 Services
@@ -81,9 +122,10 @@ const ContactUs = () => {
             <li>
               <span
                 onClick={() =>
-                  document
-                    .getElementById("projects")
-                    ?.scrollIntoView({ behavior: "smooth" })
+                  document.getElementById("projects")
+                    ?.scrollIntoView({
+                      behavior: "smooth",
+                    })
                 }
               >
                 Projects
@@ -93,12 +135,26 @@ const ContactUs = () => {
             <li>
               <span
                 onClick={() =>
-                  document
-                    .getElementById("about")
-                    ?.scrollIntoView({ behavior: "smooth" })
+                  document.getElementById("about")
+                    ?.scrollIntoView({
+                      behavior: "smooth",
+                    })
                 }
               >
-                About
+                About Us
+              </span>
+            </li>
+
+            <li>
+              <span
+                onClick={() =>
+                  document.getElementById("location")
+                    ?.scrollIntoView({
+                      behavior: "smooth",
+                    })
+                }
+              >
+                Location
               </span>
             </li>
 
@@ -115,19 +171,35 @@ const ContactUs = () => {
           <ul>
 
             <li>
-              📍 {contact.address}
+              <i className="fa-solid fa-location-dot"></i>
+
+              <span>
+                {contact?.address}
+              </span>
             </li>
 
             <li>
-              <a href={`tel:${contact.phone}`}>
-                📞 {contact.phone}
+
+              <a href={`tel:${contact?.phone}`}>
+
+                <i className="fa-solid fa-phone"></i>
+
+                {contact?.phone}
+
               </a>
+
             </li>
 
             <li>
-              <a href={`mailto:${contact.email}`}>
-                📧 {contact.email}
+
+              <a href={`mailto:${contact?.email}`}>
+
+                <i className="fa-solid fa-envelope"></i>
+
+                {contact?.email}
+
               </a>
+
             </li>
 
           </ul>
@@ -138,8 +210,13 @@ const ContactUs = () => {
 
       <div className="footer-bottom">
 
-        © {new Date().getFullYear()} AV Construction & Developers.
-        All Rights Reserved.
+        <p>
+
+          © {new Date().getFullYear()} AV Construction & Developers.
+
+          All Rights Reserved.
+
+        </p>
 
       </div>
 
