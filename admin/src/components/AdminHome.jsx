@@ -37,7 +37,7 @@ const AdminHome = () => {
 
    <button onClick={() => navigate("/view-feedback")}>
   View Feedback
-</button>
+  </button>
 
     <button className="btn-logout" onClick={logout}>
       Logout

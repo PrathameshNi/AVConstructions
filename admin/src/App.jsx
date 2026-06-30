@@ -11,7 +11,7 @@ import Appointments from './components/ViewAppointments.jsx';
 import ViewAdmins from './components/ViewAdmins.jsx';
 import EditContact from './components/EditContact.jsx';
 import BillingPage from './components/Billing.jsx';
-import ViewFeedback from "./pages/ViewFeedback";
+import ViewFeedback from "./components/ViewFeedback.jsx";
 
 function App() {
 

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Style2.css";
 
 const Feedback = () => {
+
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     name: "",
@@ -12,12 +15,10 @@ const Feedback = () => {
   });
 
   const handleChange = (e) => {
-
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
-
   };
 
   const handleSubmit = async (e) => {
@@ -45,7 +46,6 @@ const Feedback = () => {
       alert("Something went wrong");
 
     }
-
   };
 
   return (
@@ -70,7 +70,7 @@ const Feedback = () => {
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="Email Address"
             value={form.email}
             onChange={handleChange}
             required
@@ -81,16 +81,16 @@ const Feedback = () => {
             value={form.rating}
             onChange={handleChange}
           >
-            <option value="5">⭐⭐⭐⭐⭐</option>
-            <option value="4">⭐⭐⭐⭐</option>
-            <option value="3">⭐⭐⭐</option>
-            <option value="2">⭐⭐</option>
-            <option value="1">⭐</option>
+            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+            <option value="4">⭐⭐⭐⭐ Very Good</option>
+            <option value="3">⭐⭐⭐ Good</option>
+            <option value="2">⭐⭐ Fair</option>
+            <option value="1">⭐ Poor</option>
           </select>
 
           <textarea
             name="feedback"
-            placeholder="Write your feedback"
+            placeholder="Write your feedback..."
             value={form.feedback}
             onChange={handleChange}
             required
@@ -102,12 +102,18 @@ const Feedback = () => {
 
         </form>
 
+        <button
+          className="back-btn"
+          onClick={() => navigate("/")}
+        >
+          ← Back to Home
+        </button>
+
       </div>
 
     </div>
 
   );
-
 };
 
 export default Feedback;
