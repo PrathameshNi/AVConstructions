@@ -949,29 +949,7 @@ app.delete(
   }
 );
 
-app.post(
-  "/api/feedback",
-  async (req, res) => {
 
-    const {
-      name,
-      rating,
-      feedback
-    } = req.body;
-
-    await Feedback.create({
-      name,
-      rating,
-      feedback
-    });
-
-    res.json({
-      success: true,
-      message: "Feedback Submitted"
-    });
-
-  }
-);
 /* ================= SERVER ================= */
 
 app.listen(PORT, () => {
