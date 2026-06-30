@@ -172,3 +172,25 @@ body {
   .nav-links span { font-size: 12px; padding: 6px 10px; }
   .logo { font-size: 16px; }
 }
+
+
+.btn{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.feedback-btn{
+  background: #ff9800;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.feedback-btn:hover{
+  background: #e68900;
+  transform: translateY(-2px);
+}
